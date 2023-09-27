@@ -1,11 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors package
 const app = express();
-const PORT = process.env.PORT || 3030;
-
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
+
+// Use the cors middleware with the appropriate options
+app.use(
+  cors({
+    origin: 'http://127.0.0.1:5500', // Replace with the origin of your frontend application
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Set to true if you are using cookies or sessions
+  })
+);
+
 
 // Define a POST route for your handler
 app.post('/validate', (req, res) => {
