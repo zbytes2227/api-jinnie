@@ -28,7 +28,7 @@ app.post('/validate', (req, res) => {
       return res.status(400).json({ success: false, msg: "Phone number should be exactly 10 digits." });
     }
 
-    return res.status(200).json({ success: true, msg: "Congrats! Account has been created." });
+    return res.status(200).json({ success: true, msg: "Yeah! Valid Number" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, msg: "Server error" });
